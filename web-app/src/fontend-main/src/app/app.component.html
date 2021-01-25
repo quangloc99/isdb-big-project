@@ -1,0 +1,18 @@
+<mat-toolbar [class.mat-elevation-z3]="true" color="primary" style="z-index: 3; position: relative">
+  Random wood workshop
+  <span class="flex-spacer"></span>
+  <ng-template [ngIf]="userInfo">
+    <button mat-flat-button color="primary" [matMenuTriggerFor]="account_menu">
+      Welcome {{ userInfo.name }}
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+
+    <mat-menu #account_menu="matMenu" xPosition="before">
+      <button mat-menu-item (click)="doLogout()">Logout</button>
+    </mat-menu>
+  </ng-template>
+</mat-toolbar>
+
+<div class="wrapper">
+  <router-outlet></router-outlet>
+</div>
